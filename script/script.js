@@ -13,11 +13,11 @@ function playRound(event) {
     /*let target = !event.target.getAttribute("data-value") ? event.target.offsetParent
         : event.target;*/
     
-    const userMove = event.target.getOffsetParent.getAttribute("data-value");
+    const userMove = event.target.offsetParent.getAttribute("data-value");
     const computerMove = computerPlay();
     const userNode = document.querySelector("#userMove");
     const computerNode = document.querySelector("#computerMove");
-    prepareImg("./static/" + userMove + ".svg", target, userNode);
+    prepareImg("./static/" + userMove + ".svg", userMove, userNode);
     prepareImg("./static/" + computerMove + ".svg", computerMove, computerNode);
     const message = compareScore(userMove, computerMove);
     document.querySelector("#scoreHeader").textContent = message;
