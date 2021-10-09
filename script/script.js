@@ -17,7 +17,7 @@ function playRound(event) {
     const computerMove = computerPlay();
     const userNode = document.querySelector("#userMove");
     const computerNode = document.querySelector("#computerMove");
-    prepareImg("./static/" + userMove + ".svg", userMove, userNode);
+    prepareImg("./static/" + userMove + ".svg", target, userNode);
     prepareImg("./static/" + computerMove + ".svg", computerMove, computerNode);
     const message = compareScore(userMove, computerMove);
     document.querySelector("#scoreHeader").textContent = message;
