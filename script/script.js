@@ -13,7 +13,7 @@ function playRound(event) {
     /*let target = !event.target.getAttribute("data-value") ? event.target.offsetParent
         : event.target;*/
     
-    const userMove = event.target.offsetParent.getAttribute("data-value");
+    const userMove = event.target.getAttribute("data-value");
     const computerMove = computerPlay();
     const userNode = document.querySelector("#userMove");
     const computerNode = document.querySelector("#computerMove");
