@@ -1,6 +1,6 @@
 let round = 0,
-    playerScore = 0,
-    computerScore = 0,
+    playerScore = +document.querySelector("#userScore").textContent,
+    computerScore = +document.querySelector("#computerScore").textContent,
     playAgain = "y";
 
 String.prototype.toSentenceCase = function () {
@@ -10,37 +10,22 @@ String.prototype.toSentenceCase = function () {
 
 const options = ["rock", "paper", "scissors"];
 
-while (playAgain === "y") {
+const moveOptions = document.querySelectorAll(".option");
+moveOptions.forEach(x => x.addEventListener("click", playRound));
 
-    game();
-
-    if (round === 5) {
-        let resultMessage = playerScore > computerScore ? "Player Wins!"
-            : playerScore === computerScore ? "It's a Tie"
-                : "Computer Wins!";
-        playAgain = prompt(`Player score: ${playerScore}, Computer score: ${computerScore}, ` +  resultMessage + " Wan't To Play Again? (y/n)");
-
-        if (playAgain === "y") {
-            round = 0;
-            playerScore = 0;
-            computerScore = 0;
-        }
-    }
-}
-
-
-
-function game() {
-    while (round < 5) {
-        const playerSelection = userPlay();
-        const computerSelection = computerPlay();
-        if (!playerSelection) {
-            break;
-        } else {
-            const message = playRound(playerSelection, computerSelection);
-            console.log(`Your move: ${playerSelection.toSentenceCase()}, Computer move: ${computerSelection.toSentenceCase()}, ` + message);
-            round++;
-        }
+function playRound(event) {
+    console.log(event.target.nodeType)
+    const userMove = event.target.getAttribute("data-value");
+    
+    const computerMove = computerPlay();
+    console.log(userMove, computerMove)
+    const message = compareScore(userMove, computerMove);
+    round++;
+    document.querySelector("#roundScore").textContent = `Round: ${round}`;
+    document.querySelector("#roundWinner").textContent = message;
+    if (round === 6) {
+        moveOptions.forEach(x => x.removeEventListener("click", playRound));
+        finishTheGame();
     }
 }
 
@@ -49,28 +34,7 @@ function computerPlay() {
     return options[randomNumber];
 }
 
-function userPlay() {
-
-    let inputController = false,
-        userChoice;
-
-    while (inputController === false) {
-        userChoice = (prompt("Rock, paper or scissors?")).trim().toLowerCase();
-        if (!userChoice) {
-            console.log("Cancelled!");
-            break;
-        } else {
-            if (!options.includes(userChoice)) {
-                console.log("Entry is unrecognized! Please enter again!");
-            } else {
-                inputController = true;
-            }
-        }
-    }
-    return userChoice;
-}
-
-function playRound(playerSelection, computerSelection) {
+function compareScore(playerSelection, computerSelection) {
     let message;
     if (playerSelection === computerSelection) {
         message = "It's a Tie!";
@@ -88,4 +52,8 @@ function playRound(playerSelection, computerSelection) {
         playerScore++;
     }
     return message;
+}
+
+function finishTheGame() {
+    console.log("Finish")
 }

@@ -8,6 +8,10 @@
     <title>Rock Paper Scissors</title>
     <script src="./script/script.js" async></script>
     <link rel="shortcut icon" href="./static/favicon.svg" type="image/svg">
+    <link rel="stylesheet" href="./static/stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,10 +20,10 @@
     </div>
     <div class="content">
         <div class="question">
-            What Would You Like to Play?
+            Choose Your Move
         </div>
         <div class="optionContainer">
-            <div class="option">
+            <div class="option" data-value="rock">
                 <div>
                     <img src="./static/rock.svg" alt="rock">
                 </div>
@@ -27,7 +31,7 @@
                     Rock
                 </div>
             </div>
-            <div class="option">
+            <div class="option" data-value="paper">
                 <div>
                     <img src="./static/paper.svg" alt="paper">
                 </div>
@@ -35,7 +39,7 @@
                     Paper
                 </div>
             </div>
-            <div class="option">
+            <div class="option" data-value="scissors">
                 <div>
                     <img src="./static/scissors.svg" alt="scissors">
                 </div>
@@ -44,12 +48,31 @@
                 </div>
             </div>
         </div>
-        <div class="score">
-
+        <div>
+            <div id="scoreHeader">
+                Score
+            </div>
+            <div class="score">
+                <div>
+                    <div>You</div>
+                    <div id="userScore">0</div>
+                    <div id="userMove">
+                        
+                    </div>
+                </div>
+                <div>
+                    <div>Computer</div>
+                    <div id="computerScore">0</div>
+                    <div id="computerMove">
+                        
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
     <div class="footer">
-        2021, &copy Can Özsoy
+        2021 &copy Can Özsoy
     </div>
 </body>
 
