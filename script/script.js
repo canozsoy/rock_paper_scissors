@@ -10,10 +10,10 @@ const button = document.querySelectorAll("button");
 button.forEach(x => x.addEventListener("click", btnClick));
 
 function playRound(event) {
-    let target = !event.target.getAttribute("data-value") ? event.target.offsetParent
-        : event.target;
+    /*let target = !event.target.getAttribute("data-value") ? event.target.offsetParent
+        : event.target;*/
     
-    const userMove = target.getAttribute("data-value");
+    const userMove = event.target.getOffsetParent.getAttribute("data-value");
     const computerMove = computerPlay();
     const userNode = document.querySelector("#userMove");
     const computerNode = document.querySelector("#computerMove");
