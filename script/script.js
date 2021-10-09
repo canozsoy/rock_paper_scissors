@@ -10,7 +10,7 @@ const button = document.querySelectorAll("button");
 button.forEach(x => x.addEventListener("click", btnClick));
 
 function playRound(event) {
-    let target = event.target.tagName === "IMG" ? event.target.offsetParent
+    let target = !event.target.getAttribute("data-value") ? event.target.offsetParent
         : event.target;
     
     const userMove = target.getAttribute("data-value");
