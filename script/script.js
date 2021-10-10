@@ -9,14 +9,9 @@ moveOptions.forEach(x => x.addEventListener("click", playRound));
 const button = document.querySelectorAll("button");
 button.forEach(x => x.addEventListener("click", btnClick));
 
-function playRound(event) {
-
-    let target = event.target;
-    while (!target.getAttribute("data-value")) {
-        target = target.parentNode;
-    }
-    
-    const userMove = target.getAttribute("data-value");
+function playRound() {
+        
+    const userMove = this.getAttribute("data-value");
     const computerMove = computerPlay();
     const userNode = document.querySelector("#userMove");
     const computerNode = document.querySelector("#computerMove");
