@@ -1,10 +1,9 @@
 .DS_Store
 node_modules
 /dist
-public/
 script/
 static/
-index.html
+/index.html
 
 
 # local env files
