@@ -23,4 +23,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/global";
+#scoreHeader {
+    font-size: 40px
+}
+
+.score {
+    @include centered-flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    font-size: 30px;
+    #userMove, #computerMove {
+        width: 100px;
+        height: 100px;
+        img {
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
 </style>

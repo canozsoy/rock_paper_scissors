@@ -1,8 +1,6 @@
 <template>
     <div class="content">
-        <div class="question">
-            Choose Your Move
-        </div>
+        <div class="question">Choose Your Move</div>
         <option-component />
         <score-header-component />
     </div>
@@ -22,5 +20,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/global";
 
+.content {
+    flex: 1;
+    @include centered-column-flex;
+    justify-content: space-evenly;    
+    .question {
+        font-size: 30px;
+    }
+}
 </style>

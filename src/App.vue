@@ -25,4 +25,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/global";
+
+#app {
+    min-width: 100%;
+    min-height: 100%;
+    @include centered-column-flex;
+}
 </style>

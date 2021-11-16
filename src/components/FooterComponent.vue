@@ -9,4 +9,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.footer {
+    flex: 0;
+    padding: 20px;
+    font-size: 20px;
+}
 </style>

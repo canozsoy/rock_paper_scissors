@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.header {
+    flex: 0;
+    font-size: 50px;
+    padding: 25px;
+}
 </style>

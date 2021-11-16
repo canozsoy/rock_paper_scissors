@@ -50,4 +50,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/global";
+
+.optionContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    .option {
+        padding: 20px;
+        border: 2px solid $body-color;
+        border-radius: 10px;
+        transform: scale(1);
+        transition: all 0.3s linear;
+        margin: 20px;
+        &:hover {
+            transform: scale(1.1);
+            transform-origin: center;
+            cursor: pointer;
+            border: 2px solid yellow;
+        }
+        img {
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
 </style>
