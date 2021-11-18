@@ -72,6 +72,9 @@ export default {
         transform: scale(1);
         transition: all 0.3s linear;
         margin: 20px;
+        @media (max-width: $sm-media) {
+            margin: 10px;
+        }
         &:hover {
             transform: scale(1.1);
             transform-origin: center;
@@ -82,6 +85,10 @@ export default {
             object-fit: cover;
             width: 150px;
             height: 150px;
+            @media (max-width: $sm-media) {
+                width: 50px;
+                height: 50px;
+            }
         }
     }
 }

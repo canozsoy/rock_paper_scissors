@@ -27,7 +27,7 @@ export default {
     @include centered-column-flex;
     justify-content: space-evenly;    
     .question {
-        font-size: 30px;
+        font-size: 2rem;
     }
 }
 </style>

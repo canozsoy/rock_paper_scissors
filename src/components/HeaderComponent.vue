@@ -11,9 +11,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/global";
 .header {
     flex: 0;
-    font-size: 50px;
+    font-size: 3rem;
     padding: 25px;
 }
 </style>

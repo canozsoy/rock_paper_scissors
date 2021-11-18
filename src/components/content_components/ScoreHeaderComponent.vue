@@ -48,23 +48,39 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/global";
 #scoreHeader {
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .score {
     @include centered-flex;
     flex-wrap: wrap;
     gap: 100px;
-    font-size: 30px;
+    font-size: 2rem;
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     #userMove,
     #computerMove {
         width: 100px;
         height: 100px;
+        @media (max-width: $sm-media) {
+            width: 40px;
+            height: 40px;
+        }
         img {
             object-fit: cover;
             width: 100px;
             height: 100px;
+            @media (max-width: $sm-media) {
+                width: 40px;
+                height: 40px;
+            }
         }
+    }
+    @media (max-width: $sm-media) {
+        gap: 50px;
     }
 }
 </style>

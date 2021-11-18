@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
 $body-color: #fff;
 $background-color: #1d2120;
+$sm-media: 576px;
 
 @mixin centered-flex {
     display: flex;
@@ -26,4 +27,7 @@ body {
     color: $body-color;
     text-align: center;
     background-color: $background-color;
+    @media (max-width: $sm-media) {
+        font-size: 14px;
+    }
 }
