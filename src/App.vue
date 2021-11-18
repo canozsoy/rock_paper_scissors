@@ -3,7 +3,7 @@
         <header-component />
         <content-component />
         <footer-component />
-        <score-table-component />
+        <score-table-component v-if="getGameEnd" />
     </div>
 </template>
 
@@ -12,6 +12,7 @@ import HeaderComponent from "@/components/HeaderComponent.vue";
 import ContentComponent from "@/components/ContentComponent.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import ScoreTableComponent from "@/components/ScoreTableComponent.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: 'App',
@@ -20,6 +21,9 @@ export default {
         ContentComponent,
         FooterComponent,
         ScoreTableComponent
+    },
+    computed: {
+        ...mapGetters(["getGameEnd"])
     }
 }
 </script>

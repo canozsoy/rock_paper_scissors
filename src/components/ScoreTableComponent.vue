@@ -1,16 +1,34 @@
 <template>
     <div class="scoreTableContainer">
         <div class="scoreTable">
-            <p class="scoreTableText"></p>
-            <button data-play="y">Yes!</button>
-            <button data-play="n">No!</button>
+            <p class="scoreTableText">{{ result }}</p>
+            <button @click="resetScores">Yes!</button>
+            <button @click="closeWindow">No!</button>
         </div>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
-    name: "ScoreTableComponent"
+    name: "ScoreTableComponent",
+    computed: {
+        ...mapGetters(["getPlayerScore", "getComputerScore"]),
+        result() {
+            return (this.getPlayerScore > this.getComputerScore ?
+                "You Won!" :
+                this.getPlayerScore < this.getComputerScore ?
+                    "You Lost!" :
+                    "It's a Tie!")
+                + " Wan't to Play Again?";
+        }
+    },
+    methods: {
+        ...mapActions(["resetScores"]),
+        closeWindow() {
+            document.querySelector(".scoreTableContainer").style.display = "none";
+        }
+    }
 }
 </script>
 
@@ -18,10 +36,10 @@ export default {
 @import "@/assets/global";
 
 .scoreTableContainer {
-    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba($color: #000000, $alpha: 0.4);
@@ -45,7 +63,7 @@ export default {
             background-color: $background-color;
             outline: none;
             border: none;
-            padding: 2px 20px;
+            padding: 10px 20px;
             font-size: 16px;
             border-radius: 10px;
             &:hover {

@@ -5,6 +5,7 @@
             v-for="(item, index) in options"
             :key="index"
             :data-value="item.dataValue"
+            @click="playerRound"
         >
             <div :data-value="item.dataValue">
                 <img
@@ -21,6 +22,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
     name: "OptionComponent",
     data: function () {
@@ -42,8 +45,13 @@ export default {
         }
     },
     methods: {
+        ...mapActions(["playGame"]),
         upperCaseFirstLetter(val) {
             return val.charAt(0).toUpperCase() + val.slice(1);
+        },
+        playerRound(event) {
+            const move = event.currentTarget.getAttribute("data-value");
+            this.playGame(move);
         }
     }
 }
